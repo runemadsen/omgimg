@@ -1,0 +1,53 @@
+<div id = "title1">omgimg</div>
+
+<div id = "instructions" onclick="showins()">omgimg is an all-image discussion board.<br><br>
+		every day, we post a new image. anyone can come by and comment on that image using other images. <br><br>
+		to comment on the image, click on the orange comment bubble: <img src="imgicons/comment.png" style="width: 27px; height: 22px;" border="0"><br><br>
+		to reply to an existing comment, click on the reply icon next to that comment: <img src="imgicons/reply.png" style="width: 27px; height: 22px;" border="0"><br><br>
+		either one will launch the image search box on the right. just search for an image and then click the arrow next to the image to post it to the discussion.<br><br>
+		let us know what you think at <a href="mailto:omgimg@omgimg.us">omgimg@omgimg.us</a></div>		
+</div>	
+
+<div id = "login">
+	<div id = "loginbox">
+		<div id = "hithere">
+
+			<center>
+			<div id = "whatname">WHAT'S YOUR NAME?</div>
+			<form id = "loginform" name = "loginform" action = "image.php" method="post">
+				
+					<input type = "text" id = "name" name = "name"/><br>
+					<input type = "image" src = "imgicons/check.png" id = "submitter" width = "5%"/>
+					
+			</form>
+
+			</center>
+			<a href="javascript: void(0)" onclick="showins()"><img src="imgicons/questmark.png" style="width: 20px; height: 40px;" border="0"></a>
+
+		</div>
+	
+	</div>
+</div>
+
+<script>
+
+$("#submitter").bind("click", function(){
+	
+
+	if (document.loginform.name.value == ""){
+	
+		alert("please enter a name");
+	
+		}
+	
+	else{
+	
+		$("#loginform").submit();
+	
+		}
+	
+		return false;
+});
+
+
+</script>
