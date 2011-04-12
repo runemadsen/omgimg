@@ -1,6 +1,7 @@
+source "http://gemcutter.org"
 source :rubygems
 
 gem "sinatra"
-gem 'dm-core'
-gem 'dm-migrations'
-gem 'dm-mysql-adapter'
+gem "mysql"
+gem "activerecord"
+gem "sinatra-activerecord", :require => "sinatra/activerecord"
