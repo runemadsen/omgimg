@@ -1,1 +1,178 @@
-This is todays image
+<div id = "everythingelse">
+	
+	<div id = "title">OMGIMG</div>
+	
+		<div id = "content">
+			<div id = "contentcenter"><img src="<%= @discussion.image.url %>" style="width: 420px; height: 300px;" /></div>
+			<div id = "contentright"><a href="javascript: void(0)" onclick="setparentid(0)"><img src="images/comment.png" style="width: 180px; height: 150px;" border="0"></a></div>
+			<div id = "contentleft"><a href="javascript: void(0)" onclick="showins()"><img src="images/questmark.png" style="width: 130px; height: 260px;" border="0"></a></div>
+
+		</div>
+		
+		<div id = "instructions" onclick="showins()">omgimg is an all-image discussion board.<br><br>
+		every day, we post a new image. anyone can come by and comment on that image using other images. <br><br>
+		to comment on the image, click on the orange comment bubble: <img src="imgicons/comment.png" style="width: 27px; height: 22px;" border="0"><br><br>
+		to reply to an existing comment, click on the reply icon next to that comment: <img src="imgicons/reply.png" style="width: 27px; height: 22px;" border="0"><br><br>
+		either one will launch the image search box.<br><br> just search and then click the arrow next to the image you want to post. It will be automatically posted to the discussion. <br><br>You may have to reload the page to see your comment.
+		<br><br>
+		let us know what you think at <a href="mailto:omgimg@omgimg.us">omgimg@omgimg.us</a><br><br>
+		<a href = "http://twitter.com/omgimgus" target="_blank">follow us</a></div>	
+			
+		<div id = "comments">
+				
+		<div id = "allimages"></div>
+	
+		</div>
+	
+	</div>
+
+	
+	<div id = "picsearch">TALK WITH PICS
+	 	
+	 		<form id = "searchbox" name = "searchbox" action ="searchreceiver.php?name=<?=$name ?>" method=POST enctype="application/x-www-form-urlencoded" style = "margin-bottom:5px" >
+				<input type = "text" id = "searchterm" name="searchterm" onclick = "clearbox()"/>
+				<input type = "image" class = "imgbutts" src = "imgicons/search.png" />
+				<input type = "image" class = "imgbutts" src = "imgicons/clear.png" id="clearbutton" />
+				<input type = "hidden" name = "parentid" value = "0"/>
+	 		</form>
+ 			<div id = "picchoices"></div>
+			
+	</div>
+
+<script type ="text/javascript"> 
+
+     	
+	
+  	
+  
+
+
+	/////////////ajax submission of pic choices, and refreshing of all images div//////////////////
+
+	//some options for submitting the search form and returning the results via ajax
+	var optionsA = { 
+    	target:        '#picchoices',   // target element(s) to be updated with server response 
+    	beforeSubmit:  showRequestA,  // pre-submit callback 
+    	success:       showResponseA  // post-submit callback 
+   	}; 
+   		
+   		var optionsB = { 
+    	target:        '#allimages',   // target element(s) to be updated with server response 
+    	beforeSubmit:  showRequestB,  // pre-submit callback 
+    	success:       showResponseB  // post-submit callback 
+   	}; 
+   		
+   	
+ 	function showRequestA(formData, jqForm, options) { 
+	     
+	    var queryString = $.param(formData); 
+	 
+/*  		alert('About to submit: \n\n' + queryString);   */
+	      
+	    return true; 
+	} 
+	 
+	function showResponseA(responseText, statusText, xhr, $form)  { 
+	     
+		/*
+		alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
+		'\n\nThe output div should have already been updated with the responseText.'); 
+		*/
+ 
+		 	} 
+ 
+	function showRequestB(formData, jqForm, options) { 
+	     
+	    var queryString = $.param(formData); 
+	 
+		/*  alert('About to submit: \n\n' + queryString);   */
+	      
+	    return true; 
+	} 
+	 
+	function showResponseB(responseText, statusText, xhr, $form)  { 
+	    
+	    $("#allimages").load("hpimages.php");
+ 	
+ 		window.location.hash = locateme;
+ 		
+		/*  alert ("div updated"); */
+		
+		/* window.location.hash = "#imgpost0"; //CHANGEME */
+		
+		//return false; 
+		}
+		
+	//attaches ajaxform handler to serchbox
+ 	$('#searchbox').ajaxForm(optionsA);
+ 	
+	//attaches ajaxform handler to arrows
+ 	$("body").delegate("#picchoices", "click", function(){
+	$('.formbutt').ajaxForm(optionsB);
+	    }); 
+	
+	//calls images into div
+  	$("#allimages").load("hpimages.php");
+
+	///////////////////////////functions for interactive elements//////////////////////////////////
+
+  	
+	//click on a respond link in the comments or at the top
+	var parentid = 0;
+	
+	var locatorid = 0;
+	
+	var locateme = "";
+
+	function setparentid(id){
+ 	$("#picsearch").toggle("slow");
+	document.getElementById("picchoices").innerHTML = "";
+	document.searchbox.searchterm.value = "search...";		
+	document.searchbox.parentid.value = id;
+	
+	locatorid = id;
+	locateme = "#img"+locatorid;
+
+	 		
+	}
+	
+	//click submit on an image in the options
+	function clearsearch(){
+	
+    $("#picsearch").hide("slow");
+
+	parentid = 0;
+	
+	}
+	
+	//search for a pic
+	function showpics(){
+	
+    $("#picchoices").show("slow");
+	
+	parentid = 0;
+	
+	}
+	
+		
+	//show/hide instructions
+	function showins(){
+	
+    $("#instructions").toggle("slow");
+	
+	}
+	
+	//clear search form
+	$("#clearbutton").bind("click", function() {
+    document.searchbox.searchterm.value = "";
+    return false;
+    });
+    
+    
+    function clearbox(){
+    document.searchbox.searchterm.value = "";
+    }		
+
+    
+    
+</script> 

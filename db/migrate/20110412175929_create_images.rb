@@ -7,8 +7,6 @@ class CreateImages < ActiveRecord::Migration
       t.string :commentable_type
     end
     
-    add_index :images, [:commentable_id, :commentable_type]
-    
   end
 
   def self.down
