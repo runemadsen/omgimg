@@ -16,11 +16,11 @@
 		<div id = "hithere">
 
 			<center>
-			<div id = "whatname">WHAT'S YOUR NAME?</div>
-			<form id = "loginform" name = "loginform" action = "image.php" method="post">
+			<div id="whatname">WHAT'S YOUR NAME?</div>
+			<form id="loginform" name ="loginform" action="/users/new" method="post">
 				
-					<input type = "text" id = "name" name = "name"/><br>
-					<input type = "image" src = "images/check.png" id = "submitter" width = "5%"/>
+					<input type="text" id="name" name="name"/><br>
+					<input type="image" src="images/check.png" id="submitter" width="5%"/>
 					
 			</form>
 
@@ -45,23 +45,18 @@
 
 <script>
 
-$("#submitter").bind("click", function(){
-	
-
-	if (document.loginform.name.value == ""){
-	
+$("#submitter").bind("click", function()
+{
+	if (document.loginform.name.value == "")
+	{
 		alert("please enter a name");
-	
-		}
-	
-	else{
-	
+	}
+	else
+	{
 		$("#loginform").submit();
+	}
 	
-		}
-	
-		return false;
+	return false;
 });
-
 
 </script>
