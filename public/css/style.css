@@ -9,6 +9,35 @@
     font-style: normal;
 }
 
+
+/* Today
+___________________________________________________________ */
+
+#header {
+	border-bottom: medium dotted lime;
+}
+
+#header #discussion_image {
+	max-width: 500px;
+}
+
+.image {
+	margin-left: 70px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ///////login.php/////// */
 #login{
 position: absolute;

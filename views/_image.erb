@@ -1,0 +1,8 @@
+<div class="image">
+	<img src="<%= image.url %>" />
+	
+	<% if image.images.count > 0 %>
+		<%= partial :image, :locals => {:image => image.images.first} %>
+	<% end %>
+	
+</div>

@@ -7,7 +7,7 @@ end
 class Image < ActiveRecord::Base
   belongs_to :user
   belongs_to :commentable, :polymorphic => true
-  has_one :image, :as => :commentable
+  has_many :images, :as => :commentable
 end
 
 class User < ActiveRecord::Base

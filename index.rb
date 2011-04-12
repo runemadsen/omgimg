@@ -1,7 +1,10 @@
 require 'rubygems'
 require 'bundler'
 Bundler.require
+require 'partials'
 require 'models'
+
+helpers Sinatra::Partials
 
 mime_type :ttf, 'font/ttf'
 mime_type :woff, 'font/woff'
@@ -18,11 +21,8 @@ post '/users/new' do
 end
 
 get '/today/?' do
-  
   redirect "/" if session[:user_id].nil?
-  
   @discussion = Discussion.where(:date => Date.today).first || Discussion.first
-  
   erb :today
 end
 
