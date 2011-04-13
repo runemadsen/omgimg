@@ -1,5 +1,6 @@
 <div class="image">
 	<img src="<%= image.url %>" />
+	<a href="#" class="reply" data-image-id="<%= image.id %>">Reply</a>
 	
 	<% if image.images.count > 0 %>
 		<%= partial :image, :locals => {:image => image.images.first} %>
