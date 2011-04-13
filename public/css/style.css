@@ -38,6 +38,10 @@ ___________________________________________________________ */
 	background-color: gray;
 }
 
+#modal #search_results img {
+	max-width: 100px;
+}
+
 
 
 

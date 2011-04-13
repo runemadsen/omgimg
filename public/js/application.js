@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	//$("#modal").hide();
+	$("#modal").hide();
 	
 	$('.reply').click(function()
 	{	
@@ -14,12 +14,18 @@ $(document).ready(function() {
 		$.ajax({
 			url: "/search/" + $("#searchterm").val(),
 		  success: function(data){
-				$("#search_results").html(data)
+				$("#search_results").html(data);
+				
+				$('.search_image_link').click(function() {
+					alert("clicked");
+					return false;
+				});
 		  },
 			error:function (xhr, ajaxOptions, thrownError){
 				alert(thrownError);
 			}
 		});
+		
 		return false;
 	});
 	

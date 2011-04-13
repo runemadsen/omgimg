@@ -30,7 +30,7 @@ get '/today/?' do
 end
 
 get '/search/:q' do
-  @result = GoogleAjax::Search.images('ruby', {:v => 1.0, :imgsz => "small|medium", :rsz => 8})
+  @result = GoogleAjax::Search.images(params[:q], {:v => 1.0, :imgsz => "small|medium", :rsz => 8})
   erb :search, :layout => false
 end
 
