@@ -1,6 +1,8 @@
-<div class="search_result_image">
-	<img src="<%= image.url %>" />
-	<a href="#" class="reply" data-image-id="<%= image.id %>">Reply</a>
+<div class="image_outer <%= first if defined? first %>">
+	<div class="image_inner">
+		<img class="image" src="<%= image.url %>" />
+		<a href="#" class="reply" data-image-id="<%= image.id %>"><img src="/images/reply.png"></a>
+	</div>
 	
 	<% if image.images.count > 0 %>
 		<%= partial :image, :locals => {:image => image.images.first} %>

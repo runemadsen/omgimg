@@ -1,24 +1,25 @@
 <div id="header">
 	<h1>OMGIMG</h1>
 	<img src="<%= @discussion.image.url %>" id="discussion_image" />
-	<img src="images/comment_small.png" />
-	<img src="images/questmark_small.png" />
+	<!-- <img src="images/comment_small.png" />
+		<img src="images/questmark_small.png" /> -->
 </div>
 
-<% if @discussion.image.images.count > 0 %>
-	<%= partial :image, :locals => {:image => @discussion.image.images.first} %>
-<% end %>
+<div id="images">
+	<% if @discussion.image.images.count > 0 %>
+		<%= partial :image, :locals => {:image => @discussion.image.images.first, :first => "first_image"} %>
+	<% end %>
+</div>
 
 <div id="container"></div>
 <div id="modal">
-	TALK WITH PICS
+	<h2>TALK WITH PICS</h2>
 	<form id="image_search" name="image_search" action="hej">
-		<input type= "text" id="searchterm" name="searchterm" />
+		<input type= "text" class="input_box" id="searchterm" name="searchterm" />
 		<input type= "image" id="submit" src="images/search.png" />
 		<!-- <input type= "image" src="images/clear.png" id="clearbutton" /> -->
 		<input type= "hidden" name="parentid" value = "0"/>
 	</form>
  	<div id="search_results"></div>
-
 	
 </div>

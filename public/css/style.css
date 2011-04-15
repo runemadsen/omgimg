@@ -2,8 +2,11 @@ body, html {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	background-color: #5C5C5C;
 }
 
+/* Fonts
+___________________________________________________________ */
 
 @font-face {
     font-family: 'Andale Mono';
@@ -16,20 +19,84 @@ body, html {
     font-style: normal;
 }
 
+h1 {
+	font-family: "Andale Mono";
+	font-size: 40px;
+	color:#C1E9FC;
+}
+
+h2 {
+	font-family: "Andale Mono";
+	font-size: xx-large;
+	color: #5C5C5C;
+}
 
 /* Today
 ___________________________________________________________ */
 
 #header {
 	border-bottom: medium dotted lime;
+	margin-top: 20px;
+	padding-bottom: 20px;
 }
 
 #header #discussion_image {
 	max-width: 500px;
 }
 
-.image {
-	margin-left: 70px;
+/* Image
+___________________________________________________________ */
+
+.image_outer {
+	margin-left: 140px;
+	margin-top: 60px;
+	width: 200px;
+}
+
+.image_outer.first_image {
+	margin-left: 40px;
+	margin-top: 40px;
+}
+
+.image_outer .image_inner {
+	padding: 10px;
+	background-color: #717171;
+}
+
+.image_inner .image {
+	background-color: #717171;
+	width: 180px;
+}
+
+.image_inner .reply {
+	width: 100%;
+	text-align: right	;
+}
+
+.image_inner .reply img {
+	margin-top: 10px;
+}
+
+/* Modal
+___________________________________________________________ */
+
+#instructions{
+	position: absolute;
+	width: 600px;
+	left: 195px;
+	top: 50px;
+	height: auto;
+	text-align: center;
+	font-family: "Andale Mono";
+	font-size: 20px;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-left: 1%;
+	padding-right: 1%;
+	color:#C1E9FC;
+	background-color:#8F7272;
+	display: none;
+	z-index: 500;
 }
 
 /* Modal
@@ -39,10 +106,15 @@ ___________________________________________________________ */
 	position: fixed;
 	top: 0;
 	left: 50%;
-	margin-left: -300px;
+	margin-left: -310px;
+	padding: 20px;
 	width: 600px;
 	height: 400px;
 	background-color: gray;
+}
+
+#modal h2 {
+	margin-bottom: 20px;
 }
 
 #modal #search_results img {
@@ -65,7 +137,6 @@ ___________________________________________________________ */
 
 #login_container h1 {
 	margin-bottom: 10px;
-	font-size: 48px;
 }
 
 #login_outer {
@@ -80,13 +151,10 @@ ___________________________________________________________ */
 }
 
 #login_inner h2 {
-	font-family: "Andale Mono";
-	font-size: xx-large;
-	color: #5C5C5C;
 	margin-bottom: 10px;
 }
 
-#login_inner input#name {
+input.input_box {
 	border: 0;
 	height: 40px;
 	width: 80%;
@@ -106,380 +174,3 @@ ___________________________________________________________ */
 
 
 
-
-/* ///////login.php/////// 
-#login{
-position: absolute;
-width: 990px;
-left: 0%;
-top: 11%;
-height: 90%;
-text-align: center;
-background-color: #5C5C5C;
-}
-
-#loginbox{
-position: absolute;
-width: 990px;
-left: 0%;
-top: 1%;
-height: 40%;
-padding: 2%;
-text-align: center;
-background-color: #F08035;
-color: #5C5C5C;
-}
-
-#loginform{
-padding-top: 0%;
-position: relative;
-width: 100%;
-left: 0%;
-top: 0%;
-text-align: center;
-
-}
-
-#whatname{
-position: absolute;
-width: 100%;
-left: 0%;
-top: 25%;
-text-align: center;
-height: auto;
-font-family: "Andale Mono";
-font-size: xx-large;
-padding-top: 0%;
-color: #5C5C5C;
-padding-bottom: 2px;
-
-}
-
-#hithere{
-position: absolute;
-width: 90%;
-left: 5%;
-top: 15%;
-height: auto;
-background-color: gray;
-font-family: "Andale Mono";
-font-size: xx-large;
-color: #F08035;
-padding-top: 10%;
-}*/
-
-/* ///////image.php/////// */
-
-
-/* static search bar*/
-
-body{
-margin:0;
-padding:0 <length> 0 0;
-width: 1280px;
-background-color: #5C5C5C;
-
-}
-
-
-@media screen{
-body>div#picsearch{
-position:fixed;
-}
-}
-
-div#picsearch{
-position:absolute;
-top:0;
-left: 990;
-width:290px;
-height:auto;
-background-color: #F08035;
-font-family: "Andale Mono";
-font-size: 30px;
-text-align: center;
-color: #5C5C5C;
-display: none;
-}
-
-/* title and content */
-
-#everythingelse{
-position:absolute;
-top:0;
-left:0;
-width:990px;
-height:100%;
- }
-
-
-#title{
-position: absolute;
-width: 940px;
-left: 0%;
-height: 8%;
-text-align: center;
-font-family: "Andale Mono";
-font-size: 40px;
-padding-top: 1%;
-padding-bottom: 1%;
-color:#C1E9FC;
-background-color: #5C5C5C;
-}
-
-h1 {
-font-family: "Andale Mono";
-font-size: 40px;
-color:#C1E9FC;
-}
-
-#subtitle{
-position: absolute;
-width: 1015px;
-left: 0%;
-height: 8%;
-top: 50px;
-text-align: center;
-font-family: "Andale Mono";
-font-size: 40px;
-padding-top: 1%;
-padding-bottom: 1%;
-color:#F08035;
-background-color: #5C5C5C;
-}
-
-#arccontent{
-position: absolute;
-width: 990px;
-left: 0%;
-top: 100px;
-height: 44%;
-text-align: center;
-background-color: #5C5C5C;
-padding-top: 1%;
-border-bottom: lime;
-border-bottom-style: dotted; 
-}
-
-
-
-#instructions{
-position: absolute;
-width: 600px;
-left: 195px;
-top: 50px;
-height: auto;
-text-align: center;
-font-family: "Andale Mono";
-font-size: 20px;
-padding-top: 1%;
-padding-bottom: 1%;
-padding-left: 1%;
-padding-right: 1%;
-color:#C1E9FC;
-background-color:#8F7272;
-display: none;
-z-index: 500;
-
-}
-
-#content{
-position: absolute;
-width: 990px;
-left: 0%;
-top: 10%;
-height: 44%;
-text-align: center;
-background-color: #5C5C5C;
-padding-top: 1%;
-border-bottom: lime;
-border-bottom-style: dotted; 
-}
-
-
-
-
-#contentcenter{
-position: absolute;
-width: 400px;
-left: 250px;
-top: 0%;
-height: 90%;
-text-align: center;
-padding-top: 1%;
- 
-}
-
-
-#contentright{
-position: absolute;
-width: 200px;
-left: 700px;
-top: 3%;
-height: 150px;
-text-align: center;
-padding-top: 70px;
-
- 
-}
-
-#contentleft{
-position: absolute;
-width: 200px;
-left: 50px;
-top: 6%;
-height: 200px;
-text-align: center;
-padding-top: 30px;
-  
-}
-
-/* image search */
-#picchoices{
-position: absolute;
-width: 100%;
-/* min-height: 0%;  */
-height: auto;
-background-color: #F08035;
-text-align: center;
-overflow: auto;
-}
-
-.pic{
-position: relative;
-width: 150px;
-text-align: center;
-/* min-height: 40%; */
-left: 30%;
-margin-bottom:0;
-}
-
-
-.arrow{
-position: absolute;
-width: 50px;
-height: 30px;
-margin-top: 45px;
-margin-left: 20px;
-float: left;
-
-}
-
-/* comment section*/
-
-#comments{
-position: absolute;
-width:990px;
-left: 0%;
-top: 53%;
-min-height: 50%;
-height: auto;
-background-color: #5C5C5C;
-border-top: lime;
-border-top-style: dotted; 
-}
-
-#author{
-position: absolute;
-background-color: inherit;
-font-family:"Andale Mono";
-font-weight: bold;
-width: 100%;
-height: 35px;
-color: #2E2424;
-}
-
-#author1{
-position: absolute;
-background-color:inherit;
-font-family:"Andale Mono";
-font-weight: bold;
-width: 100%;
-height: 35px;
-color: #2E2424;
-}
-
-.imgpost1{
-position:relative;
-width: 25%;
-text-align: center;
-padding-top: 2%;
-background-color: #ea1f25;
-
-}
-
-.imgpost2{
-background-color: #e24a32;
-position:relative;
-width: 25%;
-text-align: center;
-padding-top: 2%; 
-}
-
-.imgpost3{
-background-color: #de6065;
-position:relative;
-width: 25%;
-text-align: center;
-padding-top: 2%; 
-}
-
-.imgpost4{
-background-color: #e59388;
-position:relative;
-width: 25%;
-text-align: center;
-padding-top: 2%; 
-}
-
-.imgpost5{
-background-color: #e2bcb1;
-position:relative;
-width: 25%;
-text-align: center;
-padding-top: 2%; 
-}
-
-.imgform{
-position: absolute;
-right: 0%;
-}
-
-/* controls listing of images */
-ul{
-list-style-type:none;
-margin-left: 0;
-}
-
-li.a{
-list-style-type:none;
-margin-left: 100px;
-width:100%;
-}
-
-li.b{
-list-style-type:none;
-margin-left: 300px;
-width:100%;
-
-}
-
-li.c{
-list-style-type:none;
-margin-left: 450px;
-width:100%;
-
-}
-
-li.d{
-list-style-type:none;
-margin-left: 575px;
-width:100%;
-
-}
-
-#test{
-width: 1280px;
-height: 800px;
-background-color: gray;
-}

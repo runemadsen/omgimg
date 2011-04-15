@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$("#modal").hide();
+	//$("#modal").hide();
 	
 	$('.reply').click(function()
 	{	
