@@ -18,6 +18,15 @@ $(document).ready(function() {
 				
 				$('.search_image_link').click(function() {
 					alert("clicked");
+					
+					// set parent_id to the passed reply image
+					
+					// set url in form
+					
+					// post form
+					
+					// show updating
+					
 					return false;
 				});
 		  },

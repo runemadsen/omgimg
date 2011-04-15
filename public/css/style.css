@@ -1,3 +1,10 @@
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+
 @font-face {
     font-family: 'Andale Mono';
     src: url('../fonts/andale_mono-webfont.eot');
@@ -42,6 +49,54 @@ ___________________________________________________________ */
 	max-width: 100px;
 }
 
+/* Login box
+___________________________________________________________ */
+
+#login_container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 400px;
+	width: 500px;	
+	margin-left: -250px;
+	margin-top: -250px;
+	overflow: hidden;
+}
+
+#login_container h1 {
+	margin-bottom: 10px;
+	font-size: 48px;
+}
+
+#login_outer {
+	background-color: #F08035;
+	padding: 20px;
+}
+
+#login_inner {
+	background-color: gray;
+	text-align: center;
+	padding: 40px 20px;
+}
+
+#login_inner h2 {
+	font-family: "Andale Mono";
+	font-size: xx-large;
+	color: #5C5C5C;
+	margin-bottom: 10px;
+}
+
+#login_inner input#name {
+	border: 0;
+	height: 40px;
+	width: 80%;
+	font-size: 22px;
+	line-height: 40px;
+	padding: 3px 10px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+}
 
 
 
@@ -52,9 +107,7 @@ ___________________________________________________________ */
 
 
 
-
-
-/* ///////login.php/////// */
+/* ///////login.php/////// 
 #login{
 position: absolute;
 width: 990px;
@@ -107,14 +160,13 @@ position: absolute;
 width: 90%;
 left: 5%;
 top: 15%;
-/* text-align: center; */
 height: auto;
 background-color: gray;
 font-family: "Andale Mono";
 font-size: xx-large;
 color: #F08035;
 padding-top: 10%;
-}
+}*/
 
 /* ///////image.php/////// */
 
