@@ -5,6 +5,7 @@ class CreateImages < ActiveRecord::Migration
       t.integer :user_id
       t.integer :commentable_id
       t.string :commentable_type
+      t.integer :rating, :default => 0
     end
     
   end

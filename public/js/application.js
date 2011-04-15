@@ -52,4 +52,23 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	$(".vote_link").click(function() {
+		
+		var image_id = $(this).attr("data-image-id");
+		var rating_box = $(this).parent();
+		
+		$.ajax({
+			url: "/images/"+ image_id + "/rating",
+			type: "POST",
+		  success: function(data){
+				rating_box.hide();
+		  },
+			error:function (xhr, ajaxOptions, thrownError){
+				alert(thrownError);
+			}
+		});
+		
+		return false;
+	});
+	
 });

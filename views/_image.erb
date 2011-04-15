@@ -1,7 +1,10 @@
 <div class="image_outer <%= first if defined? first %>">
 	
 	<% unless defined?(first) %>
-	<div class="rating_box">&nbsp;
+	<div class="rating_box">
+		<div class="voting_box">
+			<a href="#" class="vote_link" data-image-id="<%= image.id %>"><img src="images/vote.png" /></a>
+		</div>
 	</div>
 	<% end %>
 	

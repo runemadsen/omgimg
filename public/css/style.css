@@ -102,6 +102,17 @@ ___________________________________________________________ */
 	top: -130px;
 }
 
+/* Vote
+___________________________________________________________ */
+
+.rating_box .voting_box {
+	position: relative;
+	top: 87px;
+	left: 87px;
+	width: 27px;
+	height: 27px;
+}
+
 /* instructions
 ___________________________________________________________ */
 
@@ -194,6 +205,7 @@ input.input_box {
 	text-align: center;
 	margin-bottom: 10px;
 }
+
 
 
 
