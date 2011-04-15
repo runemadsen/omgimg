@@ -1,11 +1,19 @@
 $(document).ready(function() {
 
-	//$("#modal").hide();
+	$("#modal").hide();
 	
 	$('.reply').click(function()
 	{	
 		var image_id = $(this).attr("data-image-id");
-		$("#modal").show();
+		$("#parent_id").attr("value", image_id);
+		$("#modal").show(200);
+		
+		$('#clear').click(function()
+		{	
+			$("#modal").hide(200);
+	    return false;
+		});
+		
     return false;
 	});
 	
@@ -17,15 +25,21 @@ $(document).ready(function() {
 				$("#search_results").html(data);
 				
 				$('.search_image_link').click(function() {
-					alert("clicked");
 					
-					// set parent_id to the passed reply image
+					var parent_id = $("#parent_id").attr("value");
+					var url = $(this).find("img").attr("src");
 					
-					// set url in form
-					
-					// post form
-					
-					// show updating
+					$.ajax({
+						url: "/images",
+						data: {"parent_id" : parent_id, "url" : url},
+						type: "POST",
+					  success: function(data){
+							$("#modal").hide(200);
+					  },
+						error:function (xhr, ajaxOptions, thrownError){
+							alert(thrownError);
+						}
+					});
 					
 					return false;
 				});

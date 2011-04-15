@@ -34,3 +34,13 @@ get '/search/:q' do
   erb :search, :layout => false
 end
 
+post '/images' do
+  begin
+    parent = Image.find(params[:parent_id])
+    parent.images.create(:url => params[:url], :user_id => session[:user_id])
+    "OK"
+  rescue Exception => e
+    "Error"
+  end
+end
+

@@ -1,24 +1,29 @@
 <div id="header">
 	<h1>OMGIMG</h1>
-	<img src="<%= @discussion.image.url %>" id="discussion_image" />
-	<!-- <img src="images/comment_small.png" />
-		<img src="images/questmark_small.png" /> -->
+	<div id="header_inside">
+		<img src="<%= @discussion.image.url %>" id="discussion_image" />
+		<!-- <img src="images/comment_small.png" />
+			<img src="images/questmark_small.png" /> -->
+		<a href="#" class="reply" data-image-id="<%= @discussion.image.id %>"><img src="/images/reply.png"></a>
+	</div>
 </div>
 
 <div id="images">
 	<% if @discussion.image.images.count > 0 %>
-		<%= partial :image, :locals => {:image => @discussion.image.images.first, :first => "first_image"} %>
+		<% @discussion.image.images.each do |image| %>
+				<%= partial :image, :locals => {:image => image, :first => "first_image"} %>
+		<% end %>
 	<% end %>
 </div>
 
 <div id="container"></div>
 <div id="modal">
+	<div id="clear_box"><a href="" id="clear"><img src="images/clear.png" /></a></div>
 	<h2>TALK WITH PICS</h2>
 	<form id="image_search" name="image_search" action="hej">
 		<input type= "text" class="input_box" id="searchterm" name="searchterm" />
 		<input type= "image" id="submit" src="images/search.png" />
-		<!-- <input type= "image" src="images/clear.png" id="clearbutton" /> -->
-		<input type= "hidden" name="parentid" value = "0"/>
+		<input type= "hidden" name="parent_id" id="parent_id" value = "0"/>
 	</form>
  	<div id="search_results"></div>
 	
