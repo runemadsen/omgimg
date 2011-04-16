@@ -45,13 +45,9 @@ post '/images' do
 end
 
 post '/images/:id/rating' do
-  begin
     image = Image.find(params[:id])
     image.rating += 1
     image.save
-    "Ok"
-  rescue Exception => e
-    "Error"
-  end
+    image.rating.to_s
 end
 

@@ -35,6 +35,7 @@ $(document).ready(function() {
 						type: "POST",
 					  success: function(data){
 							$("#modal").hide(200);
+							location.reload();
 					  },
 						error:function (xhr, ajaxOptions, thrownError){
 							alert(thrownError);
@@ -55,13 +56,14 @@ $(document).ready(function() {
 	$(".vote_link").click(function() {
 		
 		var image_id = $(this).attr("data-image-id");
-		var rating_box = $(this).parent();
+		var voting_box = $(this).parent();
 		
 		$.ajax({
 			url: "/images/"+ image_id + "/rating",
 			type: "POST",
 		  success: function(data){
-				rating_box.hide();
+				voting_box.parent().css("background-image", "url(/images/ratings/"+ data +".gif)");
+				voting_box.hide();
 		  },
 			error:function (xhr, ajaxOptions, thrownError){
 				alert(thrownError);
