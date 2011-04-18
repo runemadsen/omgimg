@@ -1,4 +1,3 @@
-source "http://gemcutter.org"
 source :rubygems
 
 gem "sinatra"
