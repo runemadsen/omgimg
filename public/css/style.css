@@ -99,6 +99,29 @@ ___________________________________________________________ */
 	height: 200px;
 	left: -70px;
 	top: -130px;
+	background-repeat: no-repeat;
+	z-index: -500;
+}
+
+.voting_box {
+	position: absolute;
+	top: 0px;
+	width: 27px;
+	height: 27px;
+	left: 15px;
+	top: -45px;
+	z-index: 500;
+}
+
+.reply_user {
+	float: right;
+	margin-top: 15px;
+	margin-right: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: right;
+	color: #8c270e;
+	font-family: verdana;
 }
 
 /* Vote
@@ -205,11 +228,11 @@ input.input_box {
 	margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
+.clear {
+	clear:both;
+	display:block;
+	overflow:hidden;
+	visibility:hidden;
+	width:0;
+	height:0
+}

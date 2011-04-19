@@ -2,17 +2,19 @@
 	
 	<% unless defined?(first) %>
 	<div class="rating_box" <% if image.rating > 0 %>style="background-image: url(/images/ratings/<%= image.rating <= 24 ? image.rating : 24 %>.gif)" <% end %>>
-		<div class="voting_box">
-			<a href="#" class="vote_link" data-image-id="<%= image.id %>"><img src="/images/vote.png" /></a>
-		</div>
+	</div>
+	<div class="voting_box">
+		<a href="#" class="vote_link" data-image-id="<%= image.id %>"><img src="/images/vote.png" /></a>
 	</div>
 	<% end %>
 	
 	<div class="image_inner">
 		<img class="image" src="<%= image.url %>" />
-		<% if defined?(first) || image.images.count == 0 %>
+		<% if image.images.count == 0 %>
 		<a href="#" class="reply" data-image-id="<%= image.id %>"><img src="/images/reply.png"></a>
 		<% end %>
+		<div class="reply_user"><%= image.user.name %></div>
+		<div class="clear"></div>
 	</div>
 	
 	<% if image.images.count > 0 %>
