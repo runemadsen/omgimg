@@ -2,6 +2,11 @@ $(document).ready(function() {
 
 	$("#modal").hide();
 	
+	$("#show_searchterms").click(function() {
+		$(".searchterm_box").toggle();
+		return false;
+	});
+	
 	$('.reply').click(function()
 	{	
 		var image_id = $(this).attr("data-image-id");
@@ -31,7 +36,7 @@ $(document).ready(function() {
 					
 					$.ajax({
 						url: "/images",
-						data: {"parent_id" : parent_id, "url" : url},
+						data: {"parent_id" : parent_id, "url" : url, "searchterm" : $("#searchterm").val()},
 						type: "POST",
 					  success: function(data){
 							$("#modal").hide(200);
@@ -62,9 +67,8 @@ $(document).ready(function() {
 			url: "/images/"+ image_id + "/rating",
 			type: "POST",
 		  success: function(data){
-				// this selects all of the children, problem
 				voting_box.parent().find('.rating_box').first().css("background-image", "url(/images/ratings/"+ data +".gif)");
-				//voting_box.hide();
+				voting_box.hide();
 		  },
 			error:function (xhr, ajaxOptions, thrownError){
 				alert(thrownError);

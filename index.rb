@@ -37,7 +37,7 @@ end
 post '/images' do
   begin
     parent = Image.find(params[:parent_id])
-    parent.images.create(:url => params[:url], :user_id => session[:user_id])
+    parent.images.create(:url => params[:url], :user_id => session[:user_id], :searchterm => params[:searchterm])
     "OK"
   rescue Exception => e
     "Error"
