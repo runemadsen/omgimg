@@ -106,10 +106,10 @@ ___________________________________________________________ */
 .voting_box {
 	position: absolute;
 	top: 0px;
-	width: 27px;
-	height: 27px;
-	left: 15px;
-	top: -45px;
+	width: 40px;
+	height: 40px;
+	left: 10px;
+	top: -50px;
 }
 
 .reply_user {
@@ -134,17 +134,6 @@ ___________________________________________________________ */
 	color: #FFF;
 	text-align: center;
 	font-size: 14px;
-}
-
-/* Vote
-___________________________________________________________ */
-
-.rating_box .voting_box {
-	position: relative;
-	top: 87px;
-	left: 87px;
-	width: 27px;
-	height: 27px;
 }
 
 /* instructions
