@@ -63,12 +63,13 @@ $(document).ready(function() {
 		var image_id = $(this).attr("data-image-id");
 		var voting_box = $(this).parent();
 		
+		voting_box.hide();
+		
 		$.ajax({
 			url: "/images/"+ image_id + "/rating",
 			type: "POST",
 		  success: function(data){
 				voting_box.parent().find('.rating_box').first().css("background-image", "url(/images/ratings/"+ data +".gif)");
-				voting_box.hide();
 		  },
 			error:function (xhr, ajaxOptions, thrownError){
 				alert(thrownError);

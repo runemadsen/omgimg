@@ -7,7 +7,7 @@
 	<% end %>
 	
 	<% unless defined?(first) %>
-	<div class="rating_box" <% if image.rating > 0 %>style="background-image: url(/images/ratings/<%= image.rating <= 24 ? image.rating : 24 %>.gif)" <% end %>>
+	<div class="rating_box" <% if image.rating > 0 %>style="background-image: url(/images/ratings/<%= image.rating <= 50 ? image.rating : 50 %>.gif)" <% end %>>
 	</div>
 	<div class="voting_box">
 		<a href="#" class="vote_link" data-image-id="<%= image.id %>"><img src="/images/vote.png" /></a>
