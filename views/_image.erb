@@ -20,7 +20,7 @@
 		<% if image.images.count == 0 %>
 		<a href="#" class="reply" data-image-id="<%= image.id %>"><img src="/images/reply.png"></a>
 		<% end %>
-		<div class="reply_user"><%= image.user.name %></div>
+		<div class="reply_user"><%= image.user.name unless image.user.nil? %></div>
 		<div class="clear"></div>
 	</div>
 	
