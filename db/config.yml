@@ -1,0 +1,13 @@
+development:
+  adapter: mysql
+  database: omgimg
+  host: localhost
+  username: root
+  password: Enurmadsen1
+
+production:
+  adapter: mysql
+  database: omgimg
+  host: localhost
+  username: root
+  password: Enurmadsen1

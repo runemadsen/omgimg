@@ -14,6 +14,10 @@ mime_type :woff, 'font/woff'
 
 enable :sessions
 
+before do
+  ActiveRecord::Base.verify_active_connections!
+end
+
 get '/' do
   erb :login
 end
