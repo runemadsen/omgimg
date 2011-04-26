@@ -78,7 +78,10 @@ $(document).ready(function() {
 			url: "/images/"+ image_id + "/rating",
 			type: "POST",
 		  success: function(data){
-				rating_box.css("background-image", "url(/images/ratings/"+ data +".gif)");
+			
+				var rating = parseInt(data);
+				
+				rating_box.css("background-image", "url(/images/ratings/"+ (rating > 50 ? 50 : rating) +".gif)");
 				rating_num.html(data);
 		  },
 			error:function (xhr, ajaxOptions, thrownError){
