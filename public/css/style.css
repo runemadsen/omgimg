@@ -271,11 +271,26 @@ ___________________________________________________________ */
 	float: left;
 	padding: 10px;
 	background-color: #717171;
+	margin-right: 20px;
 }
 
 .discussion_box img {
 	width: 200px;
 	
+}
+
+/* Footer
+___________________________________________________________ */
+
+.footer {
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+}
+
+.footer a {
+	color: #000000;
+	margin-right: 20px;
 }
 
 .clear {
