@@ -10,6 +10,7 @@
 	<div class="rating_box" <% if image.rating > 0 %>style="background-image: url(/images/ratings/<%= image.rating <= 50 ? image.rating : 50 %>.gif)" <% end %>>
 	</div>
 	<div class="voting_box">
+		<div class="rating_num"><%= image.rating %></div>
 		<a href="#" class="vote_link" data-image-id="<%= image.id %>"><img src="/images/vote.png" /></a>
 	</div>
 	<% end %>

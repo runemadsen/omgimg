@@ -61,15 +61,17 @@ $(document).ready(function() {
 	$(".vote_link").click(function() {
 		
 		var image_id = $(this).attr("data-image-id");
-		var voting_box = $(this).parent();
+		var rating_num = $(this).parent().find('.rating_num').first();
+		var rating_box = $(this).parent().parent().find('.rating_box').first();
 		
-		voting_box.hide();
+		$(this).hide();
 		
 		$.ajax({
 			url: "/images/"+ image_id + "/rating",
 			type: "POST",
 		  success: function(data){
-				voting_box.parent().find('.rating_box').first().css("background-image", "url(/images/ratings/"+ data +".gif)");
+				rating_box.css("background-image", "url(/images/ratings/"+ data +".gif)");
+				rating_num.html(data);
 		  },
 			error:function (xhr, ajaxOptions, thrownError){
 				alert(thrownError);
