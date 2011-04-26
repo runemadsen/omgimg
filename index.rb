@@ -35,7 +35,7 @@ end
 
 get '/archive/?' do
   redirect "/" if session[:user_id].nil?
-  @discussions = Discussion.all
+  @discussions = Discussion.where("date < ?", Date.today)
   erb :archive
 end
 
