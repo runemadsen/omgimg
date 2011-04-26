@@ -50,6 +50,26 @@ get '/search/:q' do
   erb :search, :layout => false
 end
 
+get '/new/?' do
+  redirect "/" if session[:user_id].nil?
+  @date = Discussion.order("date DESC").first.date + 1
+  @date = Date.today if @date < Date.today
+  erb :new_discussion
+end
+
+post '/new/?' do
+  redirect "/" if session[:user_id].nil?
+  if params[:password] == "omgthisissecret"
+    @date = Discussion.order("date DESC").first.date + 1
+    @date = Date.today if @date < Date.today
+    d = Discussion.create(:date => @date)
+    d.image = Image.create(:url => params[:url], :user_id => session[:user_id], :searchterm => "Discussion image")
+    "Yeah, saved!"
+  else
+    "Wrong password"
+  end
+end
+
 post '/images' do
   begin
     parent = Image.find(params[:parent_id])

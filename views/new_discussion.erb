@@ -1,0 +1,13 @@
+<form id="new_discussion" name="new_discussion" action="/new" method="POST">
+	Link to image:<br />
+	<input type= "text" name="url" /><br /><br />
+	
+	Password:<br />
+	<input type= "text" name="password" /><br /><br />
+	
+	Date:<br />
+	<%= @date.inspect %>
+	
+	<br /><br />
+	<input type="submit" value="Save Discussion">
+</form>
