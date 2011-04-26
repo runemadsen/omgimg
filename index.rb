@@ -29,7 +29,19 @@ end
 
 get '/today/?' do
   redirect "/" if session[:user_id].nil?
-  @discussion = Discussion.where(:date => Date.today).first || Discussion.first
+  @discussion = Discussion.where(:date => Date.today).first || Discussion.last
+  erb :today
+end
+
+get '/archive/?' do
+  redirect "/" if session[:user_id].nil?
+  @discussions = Discussion.all
+  erb :archive
+end
+
+get '/archive/:date/?' do
+  redirect "/" if session[:user_id].nil?
+  @discussion = Discussion.where(:date => params[:date]).first || Discussion.last
   erb :today
 end
 

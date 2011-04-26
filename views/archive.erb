@@ -1,0 +1,9 @@
+<h1>Archive</h1>
+
+<% @discussions.each do |d| %>
+	<div class="discussion_box">
+		<%= d.date %><br />
+		<a href="/archive/<%= d.date %>"><img src="<%= d.image.url %>"></a>
+	</div>
+<% end %>
+<div class="clear"></div>

@@ -264,6 +264,20 @@ input.input_box {
 	margin-bottom: 10px;
 }
 
+/* Archive
+___________________________________________________________ */
+
+.discussion_box {
+	float: left;
+	padding: 10px;
+	background-color: #717171;
+}
+
+.discussion_box img {
+	width: 200px;
+	
+}
+
 .clear {
 	clear:both;
 	display:block;
