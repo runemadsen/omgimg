@@ -1,3 +1,4 @@
+<A name="image<%= image.id %>">
 <div class="image_outer <%= first if defined? first %>">
 	
 	<% unless image.searchterm.nil? %>
@@ -16,7 +17,7 @@
 	<% end %>
 	
 	<div class="image_inner">
-		<img class="image" src="<%= image.url %>" />	
+		<a href="#image<%= image.id %>" alt="Link to this image" title="Link to this image"><img class="image" src="<%= image.url %>" /></a>
 		
 		<% if image.images.count == 0 %>
 		<a href="#" class="reply" data-image-id="<%= image.id %>"><img src="/images/reply.png"></a>

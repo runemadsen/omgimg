@@ -4,6 +4,14 @@ $(document).ready(function() {
 	
 	$("#show_searchterms").click(function() {
 		$(".searchterm_box").toggle();
+		if($(this).hasClass('highlight'))
+		{
+			$(this).removeClass('highlight');
+		}
+		else
+		{
+			$(this).addClass('highlight');
+		}
 		return false;
 	});
 	
