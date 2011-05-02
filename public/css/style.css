@@ -153,13 +153,13 @@ ___________________________________________________________ */
 	font-size: 14px;
 }
 
-a#show_searchterms {
+/*a#show_searchterms {
 	display: block;
 	margin-left: 20px;
 	margin-top: 20px;
 	font-size: 20px;
 	color: #000;
-}
+}*/
 
 a#show_searchterms.highlight {
 	color: lime;
