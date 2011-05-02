@@ -29,9 +29,7 @@ end
 
 get '/today/?' do
   redirect "/" if session[:user_id].nil?
-  t = Time.now + (60 * 60 * 6)
-  d = Date.parse(t.strftime('%Y/%m/%d'))
-  @discussion = Discussion.where(:date => d).first || Discussion.last
+  @discussion = Discussion.where(:date => Date.today).first || Discussion.last
   erb :today
 end
 
