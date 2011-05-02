@@ -29,13 +29,17 @@ end
 
 get '/today/?' do
   redirect "/" if session[:user_id].nil?
-  @discussion = Discussion.where(:date => Date.today).first || Discussion.last
+  t = Time.now - (60 * 60 * 6)
+  d = Date.parse(t.strftime('%Y/%m/%d'))
+  @discussion = Discussion.where(:date => d).first || Discussion.last
   erb :today
 end
 
 get '/archive/?' do
   redirect "/" if session[:user_id].nil?
-  @discussions = Discussion.where("date < ?", Date.today)
+  t = Time.now - (60 * 60 * 6)
+  d = Date.parse(t.strftime('%Y/%m/%d'))
+  @discussions = Discussion.where("date < ?", d)
   erb :archive
 end
 
