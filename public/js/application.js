@@ -39,12 +39,19 @@ $(document).ready(function() {
 				
 				$('.search_image_link').click(function() {
 					
+					var username = $("#username_form").val();
+					if(username == "")
+					{
+						alert("You have to write a name to post an image");
+						return false;
+					}
+					
 					var parent_id = $("#parent_id").attr("value");
 					var url = $(this).find("img").attr("src");
 					
 					$.ajax({
 						url: "/images",
-						data: {"parent_id" : parent_id, "url" : url, "searchterm" : $("#searchterm").val()},
+						data: {"parent_id" : parent_id, "url" : url, "searchterm" : $("#searchterm").val(), "username" : username},
 						type: "POST",
 					  success: function(data){
 							$("#modal").hide(200);

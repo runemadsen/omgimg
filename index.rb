@@ -12,8 +12,6 @@ GoogleAjax.referrer = "http://www.runemadsen.com"
 mime_type :ttf, 'font/ttf'
 mime_type :woff, 'font/woff'
 
-enable :sessions
-
 before do
   ActiveRecord::Base.verify_active_connections!
 end
@@ -28,7 +26,6 @@ post '/users/new' do
 end
 
 get '/today/?' do
-  redirect "/" if session[:user_id].nil?
   t = Time.now - (60 * 60 * 6)
   d = Date.parse(t.strftime('%Y/%m/%d'))
   @discussion = Discussion.where(:date => d).first || Discussion.last
@@ -36,7 +33,6 @@ get '/today/?' do
 end
 
 get '/archive/?' do
-  redirect "/" if session[:user_id].nil?
   t = Time.now - (60 * 60 * 6)
   d = Date.parse(t.strftime('%Y/%m/%d'))
   @discussions = Discussion.where("date < ?", d)
@@ -44,7 +40,6 @@ get '/archive/?' do
 end
 
 get '/archive/:date/?' do
-  redirect "/" if session[:user_id].nil?
   @discussion = Discussion.where(:date => params[:date]).first || Discussion.last
   erb :today
 end
@@ -55,14 +50,12 @@ get '/search/:q' do
 end
 
 get '/new/?' do
-  redirect "/" if session[:user_id].nil?
   @date = Discussion.order("date DESC").first.date + 1
   @date = Date.today if @date < Date.today
   erb :new_discussion
 end
 
 post '/new/?' do
-  redirect "/" if session[:user_id].nil?
   if params[:password] == "omgthisissecret"
     @date = Discussion.order("date DESC").first.date + 1
     @date = Date.today if @date < Date.today
@@ -76,8 +69,9 @@ end
 
 post '/images' do
   begin
+    user_id = User.find_or_create_by_name(params[:username]).id
     parent = Image.find(params[:parent_id])
-    parent.images.create(:url => params[:url], :user_id => session[:user_id], :searchterm => params[:searchterm])
+    parent.images.create(:url => params[:url], :user_id => user_id, :searchterm => params[:searchterm])
     "OK"
   rescue Exception => e
     "Error"
