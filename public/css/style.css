@@ -60,6 +60,20 @@ ___________________________________________________________ */
 	margin-top: 10px;
 }
 
+#tips {
+	color: #FFF;
+}
+
+#tips #tips_reply {
+	background-color: #717171;
+	padding: 3px 0px;
+}
+
+#tips #tips_vote {
+	background-color: #f08035;
+	padding: 3px 0px 10px 0px;
+}
+
 /* Image
 ___________________________________________________________ */
 
