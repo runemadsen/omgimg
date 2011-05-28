@@ -295,6 +295,10 @@ input.user_box {
 	margin-bottom: 10px;
 }
 
+input#username_form {
+	height: 40px;
+}
+
 /* Archive
 ___________________________________________________________ */
 
