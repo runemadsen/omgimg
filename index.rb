@@ -2,8 +2,8 @@ require 'rubygems'
 require 'bundler'
 Bundler.require
 require 'net/http'
-require 'partials'
-require 'models'
+require './partials'
+require './models'
 
 helpers Sinatra::Partials
 
