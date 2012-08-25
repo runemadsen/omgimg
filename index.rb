@@ -6,7 +6,6 @@ require './partials'
 require './models'
 
 helpers Sinatra::Partials
-
 GoogleAjax.referrer = "http://www.runemadsen.com"
 
 mime_type :ttf, 'font/ttf'
