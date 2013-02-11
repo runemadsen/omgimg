@@ -1,10 +1,10 @@
 source :rubygems
 
 gem "sinatra"
-gem "mysql"
 gem "activerecord"
 gem "googleajax"
 gem "sinatra-activerecord", :require => "sinatra/activerecord"
+gem "json", "1.5.5"
 
 group :development, :test do
   gem 'sqlite3'
