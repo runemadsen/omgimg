@@ -3,11 +3,11 @@ development:
   database: omgimg
   host: localhost
   username: root
-  password: Enurmadsen1
+  password: REPLACEME
 
 production:
   adapter: mysql
   database: omgimg
   host: localhost
   username: root
-  password: Enurmadsen1
+  password: REPLACEME
